@@ -1,4 +1,4 @@
-# Deadly-Encounter-Benchmark
+# Deadly Encounter Benchmark
 Foundry VTT Module. Help determine the difficulty of combat encounters using this benchmark method. Modeled after [Sly Flourish's Lazy DM Prep](https://slyflourish.com/).
 
 A <i>Deadly Encounter Benchmark</i> is a guideline that helps determine an encounter's difficulty.
