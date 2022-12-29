@@ -19,4 +19,6 @@ If friendly NPCs join the encounter, their CR values are added to the <i>Deadly 
 
 Once installed and actived, a <i>Deadly Encounter Benchmark</i> button will appear under the Token Controls menu. Click to activate.
 
-<img src="https://user-images.githubusercontent.com/112721768/208969922-01d9cd00-16d7-4599-95d4-15c90ff0f265.png" width="500">
+<img src="https://user-images.githubusercontent.com/112721768/209897634-179f4d5e-e5ff-4fb3-be64-780fd0f07284.png" width="500"> 
+With token outlines:
+<img src="https://user-images.githubusercontent.com/112721768/209897829-dc0511fb-99bb-4135-86ef-94a2c6d91841.png" width="500">
