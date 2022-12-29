@@ -1,4 +1,5 @@
-![](https://img.shields.io/badge/Foundry-v10.0.0-informational)
+![Foundry Core Compatible Version](https://img.shields.io/endpoint?url=https%3A%2F%2Ffoundryshields.com%2Fversion%3Fstyle%3Dfor-the-badge%26url%3Dhttps%3A%2F%2Fgithub.com%2Fsnshatto%2Fdeadly-encounter-benchmark%2Freleases%2Fdownload%2Fv1.1.0%2Fmodule.json)
+![Latest Version](https://img.shields.io/github/v/release/snshatto/deadly-encounter-benchmark?color=Red&include_prereleases&label=Latest%20Release&sort=date&style=for-the-badge)
 
 # Changelog
 v1.1.0
