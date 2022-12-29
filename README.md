@@ -1,6 +1,11 @@
 ![](https://img.shields.io/badge/Foundry-v10.0.0-informational)
 
 # Changelog
+v1.1.0
+- Added a settings menu
+- Added an option to make all values under "1" show up as a fraction (similar to how CR is traditionally represented in 5e)
+- Added an option to display a highlight around all selected tokens when the Deadly Encounter Benchmark is activated. This makes it a bit easier to see which tokens are included in the calculation. This can be slow if there are too many tokens selected. Recommended use only when a few tokens are selected. This option REQUIRES the [Token Magic FX](https://github.com/Feu-Secret/Tokenmagic) module to also be installed an activated.
+
 
 # Description
 Foundry VTT Module. Help determine the difficulty of combat encounters using this benchmark method. Modeled after [Sly Flourish's Lazy DM Prep](https://slyflourish.com/).
