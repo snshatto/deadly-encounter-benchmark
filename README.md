@@ -6,6 +6,7 @@ v1.2.0
 - Refined the dialog pop-up display to be similar to ironmonk88's "Monks Little Details."
 - Added a tooltip option to display a tooltip that helps explain the Deadly Encounter Benchmark calculation.
 - Added an option to display the Deadly Encounter Benchmark as a chat message, rather than a pop-up dialog box.
+
 v1.1.0
 - Added a settings menu
 - Added an option to make all values under "1" show up as a fraction (similar to how CR is traditionally represented in 5e)
