@@ -275,7 +275,11 @@ class DeadlyEncounterBenchmark {
                     }
                 }
             }];
-            TokenMagic.addUpdateFiltersOnSelected(params);
+            if (game.modules.get("tokenmagic")?.active) {
+                TokenMagic.addUpdateFiltersOnSelected(params)
+            } else {
+                ui.notifications.warn("Deadly Encounter Benchmark  |  Display Token Outline option selected. Please enable Token Magic FX!");
+            }
         }
 
         //Chat Message Option
