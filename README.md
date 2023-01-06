@@ -2,6 +2,9 @@
 ![Latest Version](https://img.shields.io/github/v/release/snshatto/deadly-encounter-benchmark?color=Red&include_prereleases&label=Latest%20Release&sort=date&style=for-the-badge)
 
 # Changelog
+v.1.2.1
+- Added a warning message if the "Display Token Outline" option is enable but Token Magic FX is not enable or not installed
+
 v1.2.0
 - Refined the dialog pop-up display to be similar to ironmonk88's "Monks Little Details."
 - Added a tooltip option to display a tooltip that helps explain the Deadly Encounter Benchmark calculation.
