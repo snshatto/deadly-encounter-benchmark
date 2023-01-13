@@ -2,6 +2,9 @@
 ![Latest Version](https://img.shields.io/github/v/release/snshatto/deadly-encounter-benchmark?color=Red&include_prereleases&label=Latest%20Release&sort=date&style=for-the-badge)
 
 # Changelog
+v1.2.3
+- fixed a bug where Friendly NPC CR would not be added to the  Deadly Encounter Benchmark if the "Display as fraction" option was enabled.
+
 v1.2.2
 - Quick code fix
 
