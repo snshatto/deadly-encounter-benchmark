@@ -2,6 +2,11 @@
 ![Latest Version](https://img.shields.io/github/v/release/snshatto/deadly-encounter-benchmark?color=Red&include_prereleases&label=Latest%20Release&sort=date&style=for-the-badge)
 
 # Changelog
+v1.3.0
+- Updated for v11
+- Removed the "display as fraction" option. This is now the default
+- Pop-up now displays selected token image. When hovered with mouse, will display the token CR or level
+
 v1.2.4
 - Fixed an issue where Deadly Encounter Benchmark caused the AC in the default character sheet to change position and keep the tooltip up permanently when hovered over with mouse.
 
