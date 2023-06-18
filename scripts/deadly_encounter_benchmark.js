@@ -54,14 +54,115 @@ class DeadlyEncounterBenchmark {
 
         //DIALOG BOX
 
+        let htokenName = ""
+        for(let token of selectedHostile){
+            if (token.actor.type != "character"){
+                let cr = token.actor.system.details.cr;
+                    if (!cr){cr = "n/a"}
+                        if (cr < 1 && cr == 0.125){cr = "1⁄8"}
+                        if (cr < 1 && cr == 0.25){cr = "1⁄4"}
+                        if (cr < 1 && cr == 0.375){cr = "3⁄8"}
+                        if (cr < 1 && cr == 0.5){cr = "1⁄2"}
+                        if (cr < 1 && cr == 0.625){cr = "5⁄8"}
+                        if (cr < 1 && cr == 0.75){cr = "3⁄4"}
+                        if (cr < 1 && cr == 0.875){cr = "7⁄8"}
+            htokenName += `${token.document.name} | CR: ${cr}`
+            }
+        }
+
+        let sfCharName = ""
+        for(let token of sfCharacter){
+            if (token.actor.type != "npc"){
+                let level = token.actor.system.details.level;
+                    if (!level){level = "n/a"}
+            let sName = `${token.document.name}`
+            sfCharName += `${sName} | Level: ${level}`
+            }
+        }
+        
+        let sfNPCName = ""
+        for(let token of selectedFriendly){
+            if (token.actor.type != "character"){
+                let cr = token.actor.system.details.cr;
+                    if (!cr){cr = "n/a"}
+                        if (cr < 1 && cr == 0.125){cr = "1⁄8"}
+                        if (cr < 1 && cr == 0.25){cr = "1⁄4"}
+                        if (cr < 1 && cr == 0.375){cr = "3⁄8"}
+                        if (cr < 1 && cr == 0.5){cr = "1⁄2"}
+                        if (cr < 1 && cr == 0.625){cr = "5⁄8"}
+                        if (cr < 1 && cr == 0.75){cr = "3⁄4"}
+                        if (cr < 1 && cr == 0.875){cr = "7⁄8"}
+            sfNPCName += `${token.document.name} | CR: ${cr}`
+            }
+        }
+
+        //Monster IMG Container
+
+        let htokenImg = selectedHostile.map(token => {
+            return token.document.texture.src
+        })
+
+        let hTagNameArray = selectedHostile.map(token => {
+            return token.document.name
+        })
+
+        let hTagCRArray = selectedHostile.map(token => {
+            return token.actor.system.details.cr
+        })
+
+        let monsterContainer = ""
+        for (let i = 0; i < htokenImg.length; i++) {
+            let img = `<img src=${htokenImg[i]} width="50" height="50" title="${hTagNameArray[i]} | CR: ${hTagCRArray[i]}"> `
+            monsterContainer += img
+        }
+
+        //Player IMG Container
+
+        let sfChartokenImg = sfCharacter.map(token => {
+            return token.document.texture.src
+        })
+
+        let CharTagNameArray = sfCharacter.map(token => {
+            return token.document.name
+        })
+
+        let CharTagCRArray = sfCharacter.map(token => {
+            return token.actor.system.details.level
+        })
+
+        let playerContainer = ""
+        for (let i = 0; i < sfChartokenImg.length; i++) {
+            let img = `<img src=${sfChartokenImg[i]} width="50" height="50" title="${CharTagNameArray[i]} | Level: ${CharTagCRArray[i]}"> `
+            playerContainer += img
+        }
+
+        //Ally IMG Container
+
+        let sfNPCtokenImg = sfNPC.map(token => {
+            return token.document.texture.src
+        })
+        console.log(sfNPCtokenImg)
+
+        let NPCTagNameArray = sfNPC.map(token => {
+            return token.document.name
+        })
+        
+        let NPCTagCRArray = sfNPC.map(token => {
+            return token.actor.system.details.cr
+        })
+
+        let allyContainer = ""
+        for (let i = 0; i < sfNPCtokenImg.length; i++) {
+            let img = `<img src=${sfNPCtokenImg[i]} width="50" height="50" title="${NPCTagNameArray[i]} | CR: ${NPCTagCRArray[i]}"> `
+            allyContainer += img
+        }
+
         //Defining options dialog box for Monster CR
         let npcOptions = ""
         for(let token of selectedHostile){
             if (token.actor.type != "character"){
             let cr = token.actor.system.details.cr;
                 if (!cr){cr = "n/a"}
-                if (game.settings.get("deadly-encounter-benchmark", "fraction-option")) {
-                    let fcr = cr
                     if (cr < 1 && cr == 0.125){cr = "1⁄8"}
                     if (cr < 1 && cr == 0.25){cr = "1⁄4"}
                     if (cr < 1 && cr == 0.375){cr = "3⁄8"}
@@ -69,7 +170,6 @@ class DeadlyEncounterBenchmark {
                     if (cr < 1 && cr == 0.625){cr = "5⁄8"}
                     if (cr < 1 && cr == 0.75){cr = "3⁄4"}
                     if (cr < 1 && cr == 0.875){cr = "7⁄8"}
-                }
                 npcOptions += `<option value=${selected}>${token.document.name} | CR: ${cr}</option>`
             }
         }
@@ -90,8 +190,6 @@ class DeadlyEncounterBenchmark {
             if (token.actor.type != "character"){
             let cr = token.actor.system.details.cr;
                 if (!cr){cr = "n/a"}
-                if (game.settings.get("deadly-encounter-benchmark", "fraction-option")) {
-                    let fcr = cr
                     if (cr < 1 && cr == 0.125){cr = "1⁄8"}
                     if (cr < 1 && cr == 0.25){cr = "1⁄4"}
                     if (cr < 1 && cr == 0.375){cr = "3⁄8"}
@@ -99,7 +197,6 @@ class DeadlyEncounterBenchmark {
                     if (cr < 1 && cr == 0.625){cr = "5⁄8"}
                     if (cr < 1 && cr == 0.75){cr = "3⁄4"}
                     if (cr < 1 && cr == 0.875){cr = "7⁄8"}
-                }
             fnpcOptions += `<option value=${selected}>${token.document.name} | CR: ${cr}</option>`
             }
         }
@@ -134,7 +231,6 @@ class DeadlyEncounterBenchmark {
         let textDEBM = "<font color='#b94a48'>" + (newDEBM) + "</font> <span title='Deadly Encounter Benchmark'><i class='fa-solid fa-shield-check'></i></span>";
         let textZeroDEBM = "<font color='#b94a48'>" + (newDEBM) + "</font> <span title='Deadly Encounter Benchmark'><i class='fa-solid fa-shield-check'></i></span>";
         //Fractions
-        if (game.settings.get("deadly-encounter-benchmark", "fraction-option")) {
             if(newDEBM < 1 && newDEBM == 0.125){textDEBM = "<font color='#b94a48'>" + "1⁄8" + "</font> <span title='Deadly Encounter Benchmark'><i class='fa-solid fa-shield-check'></i></span>";
                                           textZeroDEBM = "<font color='#b94a48'>" + "1⁄8" + "</font> <span title='Deadly Encounter Benchmark'><i class='fa-solid fa-shield-check'></i></span>"}
             if(newDEBM < 1 && newDEBM == 0.25){textDEBM = "<font color='#b94a48'>" + "1⁄4" + "</font> <span title='Deadly Encounter Benchmark'><i class='fa-solid fa-shield-check'></i></span>";
@@ -164,7 +260,6 @@ class DeadlyEncounterBenchmark {
                                      zeroCR = "<font color='#b94a48'>" + "3⁄4" + "</font> <span title='Monster CR'><i class='fa-solid fa-swords'></i></span>"}
             if(CR < 1 && CR === 0.875){newCR = "<font color='#b94a48'>" + "7⁄8" + "</font> <span title='Monster Token CR'><i class='fa-solid fa-swords'></i></span>";
                                       zeroCR = "<font color='#b94a48'>" + "7⁄8" + "</font> <span title='Monster CR'><i class='fa-solid fa-swords'></i></span>"}
-        }
 
         //Is the encounter deadly?
         let isDeadly = 0;
@@ -225,16 +320,16 @@ class DeadlyEncounterBenchmark {
             <span><center><font size="3"><b>The Deadly Encounter Benchmark is:</b></font></center></span>
             <span><center><font size="4">${textDEBM}</font></center></span> 
             <br>
-            <center><details><summary><b>Player level details (${sfCharacter.length} selected)</b></summary>${playerOptions}</details></center>
+            <center><span>${playerContainer}</span></center>
             <br>
-            <center><details><summary><b>Friendly NPC details (${sfNPC.length} selected)</b></summary>${fnpcOptions}</details></center>
+            <center><span>${allyContainer}</span></center>
             <br>
             <h3></h3>
             <br>
             <span><center><font size="3"><b>Total Monster CR:</b></font></center></span>
-            <span><id="challenge"><font size="4"><center>${newCR}</font></center></span> 
+            <span><id="challenge"><font size="4"><center>${newCR}</font></center></span>
             <br>
-            <center><details><summary><b>Hostile NPC details (${selectedHostile.length} selected)</b></summary>${npcOptions}</details></center>
+            <center><span>${monsterContainer}</span></center>
             <br>
             <h3></h3>
             <details><summary><i><b>What is a "Deadly Encounter Benchmark"?</b></i></summary>
@@ -401,20 +496,6 @@ Hooks.on("init", () => {
                 "both": "deadly-encounter-benchmark.settings.chat-option-both"
             },
             type: String,
-            onChange: () => window.location.reload()
-        }
-    );
-    game.settings.register(
-        "deadly-encounter-benchmark",
-        "fraction-option",
-        {
-            name: "deadly-encounter-benchmark.settings.fraction-option",
-            hint: "deadly-encounter-benchmark.settings.fraction-option-hint",
-            scope: "client",
-            config: true,
-            default: true,
-            type: Boolean,
-            onChange: () => window.location.reload()
         }
     );
     game.settings.register(
@@ -427,7 +508,6 @@ Hooks.on("init", () => {
             config: true,
             default: true,
             type: Boolean,
-            onChange: () => window.location.reload()
         }
     );
     game.settings.register(
@@ -440,7 +520,6 @@ Hooks.on("init", () => {
             config: true,
             default: false,
             type: Boolean,
-            onChange: () => window.location.reload()
         }
     );
 });
