@@ -1,6 +1,27 @@
 ![Foundry Core Compatible Version](https://img.shields.io/endpoint?url=https%3A%2F%2Ffoundryshields.com%2Fversion%3Fstyle%3Dfor-the-badge%26url%3Dhttps%3A%2F%2Fgithub.com%2Fsnshatto%2Fdeadly-encounter-benchmark%2Freleases%2Fdownload%2Fv1.3.0%2Fmodule.json)
 ![Latest Version](https://img.shields.io/github/v/release/snshatto/deadly-encounter-benchmark?color=Red&include_prereleases&label=Latest%20Release&sort=date&style=for-the-badge)
 
+# Description
+Foundry VTT Module. Help determine the difficulty of combat encounters using this benchmark method. Modeled after [Sly Flourish's Lazy DM Prep](https://slyflourish.com/).
+
+A <i>Deadly Encounter Benchmark</i> is a guideline that helps determine an encounter's difficulty.
+
+An encounter may be deadly if the total of all the monsters' challenge ratings is greater than one quarter of the total of all the characters' levels, or one half of the characters' levels if the characters are 5th level or higher.
+
+If friendly NPCs join the encounter, their CR values are added to the <i>Deadly Encounter Benchmark</i>.
+
+Once installed and actived, a <i>Deadly Encounter Benchmark</i> button will appear under the Token Controls menu. <img src="https://github.com/snshatto/deadly-encounter-benchmark/assets/112721768/edf5c4a7-ec73-4633-b3ed-b3e159526c0a" width="30"> Click to activate.
+
+<img src="https://github.com/snshatto/deadly-encounter-benchmark/assets/112721768/a504b86a-b395-4d3c-a483-84c4267accd5" width="500"> 
+
+With selected token highlights:
+
+<img src="https://github.com/snshatto/deadly-encounter-benchmark/assets/112721768/38331aee-0c41-4f05-a15f-8f7142311ce0" width="500">
+
+As a chat message:
+
+<img src="https://user-images.githubusercontent.com/112721768/210635205-70d0f079-99c0-4e9b-94cb-fc582bbcd05b.png" width="200">
+
 # Changelog
 v1.3.0
 - Updated for v11
@@ -28,25 +49,3 @@ v1.1.0
 - Added a settings menu
 - Added an option to make all values under "1" show up as a fraction (similar to how CR is traditionally represented in 5e)
 - Added an option to display a highlight around all selected tokens when the Deadly Encounter Benchmark is activated. This makes it a bit easier to see which tokens are included in the calculation. This can be slow if there are too many tokens selected. Recommended use only when a few tokens are selected. This option REQUIRES the [Token Magic FX](https://github.com/Feu-Secret/Tokenmagic) module to also be installed an activated.
-
-
-# Description
-Foundry VTT Module. Help determine the difficulty of combat encounters using this benchmark method. Modeled after [Sly Flourish's Lazy DM Prep](https://slyflourish.com/).
-
-A <i>Deadly Encounter Benchmark</i> is a guideline that helps determine an encounter's difficulty.
-
-An encounter may be deadly if the total of all the monsters' challenge ratings is greater than one quarter of the total of all the characters' levels, or one half of the characters' levels if the characters are 5th level or higher.
-
-If friendly NPCs join the encounter, their CR values are added to the <i>Deadly Encounter Benchmark</i>.
-
-Once installed and actived, a <i>Deadly Encounter Benchmark</i> button will appear under the Token Controls menu. <img src="https://github.com/snshatto/deadly-encounter-benchmark/assets/112721768/edf5c4a7-ec73-4633-b3ed-b3e159526c0a" width="30"> Click to activate.
-
-<img src="https://github.com/snshatto/deadly-encounter-benchmark/assets/112721768/a504b86a-b395-4d3c-a483-84c4267accd5" width="500"> 
-
-With selected token highlights:
-
-<img src="https://github.com/snshatto/deadly-encounter-benchmark/assets/112721768/38331aee-0c41-4f05-a15f-8f7142311ce0" width="500">
-
-As a chat message:
-
-<img src="https://user-images.githubusercontent.com/112721768/210635205-70d0f079-99c0-4e9b-94cb-fc582bbcd05b.png" width="200">
