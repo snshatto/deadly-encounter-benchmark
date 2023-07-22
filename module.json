@@ -9,10 +9,10 @@
             "flags": {}
         }
     ],
-    "version": "1.3.0",
+    "version": "1.3.1",
     "compatibility": {
         "minimum": "10",
-        "verified": "11.302"
+        "verified": "11.306"
     },
     "relationships": {
         "systems": [
@@ -39,5 +39,5 @@
     ],
     "url": "https://github.com/snshatto/deadly-encounter-benchmark",
     "manifest": "https://github.com/snshatto/deadly-encounter-benchmark/releases/latest/download/module.json",
-    "download": "https://github.com/snshatto/deadly-encounter-benchmark/releases/download/v1.1.0/module.zip"
+    "download": "https://github.com/snshatto/deadly-encounter-benchmark/releases/download/v1.3.1/module.json"
 }
