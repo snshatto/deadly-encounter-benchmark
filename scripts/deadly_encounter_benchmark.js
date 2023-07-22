@@ -112,7 +112,7 @@ class DeadlyEncounterBenchmark {
 
         let monsterContainer = ""
         for (let i = 0; i < htokenImg.length; i++) {
-            let img = `<img src=${htokenImg[i]} width="50" height="50" title="${hTagNameArray[i]} | CR: ${hTagCRArray[i]}"> `
+            let img = `<img src=${htokenImg[i]} class="container" width="50" height="50" title="${hTagNameArray[i]} | CR: ${hTagCRArray[i]}"> `
             monsterContainer += img
         }
 
@@ -132,7 +132,7 @@ class DeadlyEncounterBenchmark {
 
         let playerContainer = ""
         for (let i = 0; i < sfChartokenImg.length; i++) {
-            let img = `<img src=${sfChartokenImg[i]} width="50" height="50" title="${CharTagNameArray[i]} | Level: ${CharTagCRArray[i]}"> `
+            let img = `<img src=${sfChartokenImg[i]} class="container" width="50" height="50" title="${CharTagNameArray[i]} | Level: ${CharTagCRArray[i]}"> `
             playerContainer += img
         }
 
@@ -153,7 +153,7 @@ class DeadlyEncounterBenchmark {
 
         let allyContainer = ""
         for (let i = 0; i < sfNPCtokenImg.length; i++) {
-            let img = `<img src=${sfNPCtokenImg[i]} width="50" height="50" title="${NPCTagNameArray[i]} | CR: ${NPCTagCRArray[i]}"> `
+            let img = `<img src=${sfNPCtokenImg[i]} class="container" width="50" height="50" title="${NPCTagNameArray[i]} | CR: ${NPCTagCRArray[i]}"> `
             allyContainer += img
         }
 
