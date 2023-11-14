@@ -24,6 +24,9 @@ As a chat message:
 <img src="https://user-images.githubusercontent.com/112721768/210635205-70d0f079-99c0-4e9b-94cb-fc582bbcd05b.png" width="200">
 
 # Changelog
+v1.3.2
+-Updated to latest Foundry version
+
 v1.3.1
 - removed the border around each token in the DEBM dialog
 
