@@ -25,7 +25,7 @@ As a chat message:
 
 # Changelog
 v1.3.2
--Updated to latest Foundry version
+- Updated to latest Foundry version
 
 v1.3.1
 - removed the border around each token in the DEBM dialog
