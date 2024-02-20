@@ -3,48 +3,6 @@
   display: inline-block;
   padding: 6px
 }
-.chat{
-  display: inline-block;
-  line-height: 10px;
-  color: black;
-  white-space: nowrap;
-  vertical-align: top;
-  background-color: #f8930600;
-  height: 16px;
-  text-align: center;
-  position: relative;
-  font-size: 16px;
-  font-weight: normal;
-  margin: auto;
-  width: 275px;
-}
-.wordtip {
-  position: relative; 
-  display: inline-block;
-  padding: 6px 
-}
-.wordtip .wordtiptext {
-  visibility: hidden; 
-  width: 240px;
-  top: 100%;
-  left: 50%;
-  margin-left: -120px; /* Use half of the width (120/2 = 60), to center the tooltip */
-  background-color: #fff; 
-  color: black; 
-  text-align: center; 
-  border-radius: 20px; 
-  padding: 5px 0;
-  padding-right: 10px;
-  padding-left: 10px;
-  box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.3);
-  border: 2px solid; 
-  border-color: black;
-  /* Position the tooltip */
-  position: absolute; z-index: 1;
-}
-.wordtip:hover .wordtiptext {
-  visibility: visible;
-}
   /*The following is a modified CSS based on Monks Little Details by ironmonk88 (https://github.com/ironmonk88/monks-little-details)*/
 .isdeadly-backgroundRed {
   display: inline-block;
@@ -58,8 +16,8 @@
   height: 25px;
   text-align: center;
   position: relative;
+  font-family: var(--dnd5e-font-roboto-slab);
   font-size: 20px;
-  font-weight: normal;
   padding: 4px;
   margin-left: 0px;
 }
@@ -75,8 +33,8 @@
   height: 25px;
   text-align: center;
   position: relative;
+  font-family: var(--dnd5e-font-roboto-slab);
   font-size: 20px;
-  font-weight: normal;
   padding: 4px;
   margin-left: 0px;
 }
@@ -92,8 +50,8 @@
   height: 25px;
   text-align: center;
   position: relative;
+  font-family: var(--dnd5e-font-roboto-slab);
   font-size: 20px;
-  font-weight: normal;
   padding: 4px;
   margin-left: 0px;
 }
@@ -109,8 +67,8 @@
   height: 25px;
   text-align: center;
   position: relative;
+  font-family: var(--dnd5e-font-roboto-slab);
   font-size: 20px;
-  font-weight: normal;
   padding: 4px;
   margin-left: 0px;
 }
@@ -126,15 +84,88 @@
   height: 25px;
   text-align: center;
   position: relative;
+  font-family: var(--dnd5e-font-roboto-slab);
   font-size: 20px;
-  font-weight: normal;
   left: 25%
+}
+.container {
+  border: none;
 }
 .dialogbox {
   display: flex;
   flex-direction: column;
+  background: transparent;
 }
-
-.container {
+#debm-window .window-content{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  position: relative;
+  font-family: var(--dnd5e-font-roboto-condensed);
+  text-align: start;
+  color: var(--color-text-dark-primary);
+  background: url(/systems/dnd5e/ui/texture-gray1.webp) no-repeat top left, url(/systems/dnd5e/ui/texture-gray2.webp) no-repeat bottom right, var(--dnd5e-color-parchment);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  box-shadow: 0 0 16px var(--dnd5e-shadow-45);
+  border: 1px solid var(--dnd5e-color-gold);
+  border-top: 0px;
+}
+#debm-window .dialogbox filigree-box {
+  padding: 10px;
+}
+#debm-window .window-header {
+  background: transparent url("/systems/dnd5e/ui/official/banner-character.jpg") no-repeat center/cover; 
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border: 1px solid var(--dnd5e-color-gold);
+  border-bottom: 0px;
+}
+#debm-window input,
+#debm-window button {
+  transition: all 250ms ease;
+}
+#debm-window button {
+  background: var(--dnd5e-color-card);
+  font-family: var(--dnd5e-font-roboto);
+  font-weight: bold;
+  font-size: var(--font-size-13);
+  text-transform: uppercase;
+  padding: 0.1875rem;
+  border: 1px solid var(--color-border-light-2);
+  box-shadow: 0 0 8px var(--dnd5e-shadow-15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+#debm-window button:disabled {
+  cursor: default;
+  color: var(--color-text-dark-inactive);
+}
+#debm-window button:hover:not(:disabled),
+#debm-window button:focus {
+  box-shadow: 0 0 5px var(--color-shadow-primary);
+}
+#debm-window button.radio-button {
+  width: 13px;
+  height: 13px;
+  border-radius: 100%;
+  background: none;
+  box-shadow: inset 0 0 6px var(--dnd5e-shadow-45);
+  padding: 3px;
+  display: grid;
   border: none;
+  justify-content: unset;
+}
+#debm-window button.radio-button:hover {
+  filter: drop-shadow(0 0 6px var(--dnd5e-color-gold));
+}
+#debm-window button.radio-button[aria-pressed="true"]::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  border-radius: 100%;
+  background: var(--color-border-dark-5);
 }
