@@ -1,5 +1,5 @@
 class DeadlyEncounterBenchmark {  
-       
+
     //Fraction Option + No Token Outline
     static _activeDEBM() {
         
@@ -48,7 +48,9 @@ class DeadlyEncounterBenchmark {
         let levelMod = 0;
         for (let token of sfCharacter.filter(tok=>!!tok.actor.system.details.level)) {
             if(token.actor.system.details.level < 5){levelMod = 0.25};
-            if(token.actor.system.details.level == 5 || token.actor.system.details.level > 5){levelMod = 0.5};
+            if(token.actor.system.details.level < 11 && token.actor.system.details.level > 4){levelMod = 0.5};
+            if(token.actor.system.details.level < 17 && token.actor.system.details.level > 10){levelMod = 0.75};
+            if(token.actor.system.details.level > 16){levelMod = 1};
             DEBM += token.actor.system.details.level*levelMod
         }
 
@@ -230,6 +232,7 @@ class DeadlyEncounterBenchmark {
         
         let textDEBM = "<font color='#b94a48'>" + (newDEBM) + "</font> <span title='Deadly Encounter Benchmark'><i class='fa-solid fa-shield-check'></i></span>";
         let textZeroDEBM = "<font color='#b94a48'>" + (newDEBM) + "</font> <span title='Deadly Encounter Benchmark'><i class='fa-solid fa-shield-check'></i></span>";
+        
         //Fractions
             if(newDEBM < 1 && newDEBM == 0.125){textDEBM = "<font color='#b94a48'>" + "1⁄8" + "</font> <span title='Deadly Encounter Benchmark'><i class='fa-solid fa-shield-check'></i></span>";
                                           textZeroDEBM = "<font color='#b94a48'>" + "1⁄8" + "</font> <span title='Deadly Encounter Benchmark'><i class='fa-solid fa-shield-check'></i></span>"}
@@ -263,266 +266,94 @@ class DeadlyEncounterBenchmark {
 
         //Is the encounter deadly?
         let isDeadly = 0;
-        if(CR > DEBM + friendlyCR){
-            if (game.settings.get("deadly-encounter-benchmark", "wordtip-option")) {isDeadly = 
+        if(CR > DEBM + friendlyCR){isDeadly = 
                 `
-                <div class="wordtip"><center><span class="isdeadly-backgroundClear">This encounter may be</span><span class="isdeadly-backgroundRed">Deadly</span></center>
-                <span class="wordtiptext">${textDEBM} is less than ${newCR}</span>
+                <div class="padding"><center><span class="isdeadly-backgroundClear">This encounter may be</span><span class="isdeadly-backgroundRed" title="${DEBM + friendlyCR} is less than ${CR}">Deadly</span></center>
                 </div>
                 `
             }
-            else {isDeadly = 
-                `
-                <div class="padding"><center><span class="isdeadly-backgroundClear">This encounter may be</span><span class="isdeadly-backgroundRed">Deadly</span></center>
-                </div>
-                `
-            }
-        }
 
-        if(CR == DEBM + friendlyCR){
-            if (game.settings.get("deadly-encounter-benchmark", "wordtip-option")) {isDeadly = 
+        if(CR == DEBM + friendlyCR){isDeadly = 
                 `
-                <div class="wordtip"><center><span class="isdeadly-backgroundClear">This encounter may be</span><span class="isdeadly-backgroundOrange">Challenging</span></center>
-                <span class="wordtiptext">${textDEBM} is equal to ${newCR}</span>
+                <div class="padding"><center><span class="isdeadly-backgroundClear">This encounter may be</span><span class="isdeadly-backgroundOrange" title="${DEBM + friendlyCR} is equal to ${CR}">Challenging</span></center>
                 </div>
                 `
             }
-            else {isDeadly = 
-                `
-                <div class="padding"><center><span class="isdeadly-backgroundClear">This encounter may be</span><span class="isdeadly-backgroundOrange">Challenging</span></center>
-                </div>
-                `
-            }
-        }
 
-        if(CR < DEBM + friendlyCR){
-            if (game.settings.get("deadly-encounter-benchmark", "wordtip-option")) {isDeadly = 
+        if(CR < DEBM + friendlyCR){isDeadly = 
                 `
-                <div class="wordtip"><center><span class="isdeadly-backgroundClear">This encounter is</span><span class="isdeadly-backgroundGreen">Not Deadly</span></center>
-                <span class="wordtiptext">${textDEBM} is greater than ${newCR}</span>
+                <div class="padding"><center><span class="isdeadly-backgroundClear">This encounter is</span><span class="isdeadly-backgroundGreen" title="${DEBM + friendlyCR} is greater than ${CR}">Not Deadly</span></center>
                 </div>
                 `
             }
-            else {isDeadly = 
-                `
-                <div class="padding"><center><span class="isdeadly-backgroundClear">This encounter is</span><span class="isdeadly-backgroundGreen">Not Deadly</span></center>
-                </div>
-                `
-            }
-        }
 
         //Dialog box style
+
         let dialogTemplate = `
         <div class="dialogbox">
             ${isDeadly}
-            <h3></h3> 
-            <br>  
-            <span><center><font size="3"><b>The Deadly Encounter Benchmark is:</b></font></center></span>
-            <span><center><font size="4">${textDEBM}</font></center></span> 
+            <filigree-box>
+                <span><center><font size="3"><b>The Deadly Encounter Benchmark is:</b></font></center></span>
+                <span><center><font size="4">${textDEBM}</font></center></span> 
+                    <br>
+                <center><span>${playerContainer}</span></center>
+                    <br>
+                <center><span>${allyContainer}</span></center>
+            </filigree-box>
             <br>
-            <center><span>${playerContainer}</span></center>
-            <br>
-            <center><span>${allyContainer}</span></center>
-            <br>
-            <h3></h3>
-            <br>
-            <span><center><font size="3"><b>Total Monster CR:</b></font></center></span>
-            <span><id="challenge"><font size="4"><center>${newCR}</font></center></span>
-            <br>
-            <center><span>${monsterContainer}</span></center>
-            <br>
-            <h3></h3>
-            <details><summary><i><b>What is a "Deadly Encounter Benchmark"?</b></i></summary>
+            <filigree-box>
+                <span><center><font size="3"><b>Total Monster CR:</b></font></center></span>
+                <span><id="challenge"><font size="4"><center>${newCR}</font></center></span>
+                    <br>
+                <center><span>${monsterContainer}</span></center>
+            </filigree-box>
+                <br>
+            <details><summary><b>What is a "Deadly Encounter Benchmark"?</b></summary>
                 <br>
                 <span>A <i>Deadly Encounter Benchmark</i> is a guideline that helps determine an encounter's difficulty.</span>
                 <br>
                 <br>
-                <span>An encounter may be deadly if the total of all the monsters' challenge ratings is greater than 1⁄4 of the total of all the characters' levels, or 1⁄2 of the characters' levels if the characters are 5th level or higher.</span>
+                <span>An encounter may be deadly if the sum total of monster challenge ratings is greater than:</span>
+                <ul>
+                    <li>1⁄4 of the sum total of character levels, for characters of 1st to 4th level;</li>
+                    <li>1⁄2 of the sum total of character levels, for characters of 5th to 10th level;</li>
+                    <li>3⁄4 of the sum total of character levels, for characters of 11th to 16th level;</li>
+                    <li>Equal to the sum total of characters levels, for characters 17th level or higher.</li>
+                </ul>
                 <br>
+                <span> A Deadly Encounter means:</span>
+                <ul>
+                    <li>Most characters might lose more than half their hit points.</i>
+                    <li>Several character might go unconscious.</li>
+                    <li>There's a chance that one or more chracter might die.</li>
+                </ul>
                 <br>
                 <span>If friendly NPCs join the encounter, their CR values are added to the <i>Deadly Encounter Benchmark</i>.</span>
                 </details>
             <br>
         </div>
         `
-
-        //Token Magic FX option
-        //Modified from Token Magic FX by Feu-Secret (https://github.com/Feu-Secret/Tokenmagic)
-        if (game.settings.get("deadly-encounter-benchmark", "token-outline")) {
-            let params =
-            [{
-                filterType: "glow",
-                filterId: "superSpookyGlow",
-                autoDestroy: true,
-                outerStrength: 4,
-                innerStrength: 0,
-                color: 0x5099DD,
-                quality: 0.5,
-                padding: 10,
-                animated:
-                {
-                    color: 
-                    {
-                    active: true, 
-                    loopDuration: 3000,
-                    loops: 2,
-                    animType: "colorOscillation", 
-                    val1:0x5099DD, 
-                    val2:0x90EEFF
-                    }
-                }
-            }];
-            if (game.modules.get("tokenmagic")?.active) {
-                TokenMagic.addUpdateFiltersOnSelected(params)
-            } else {
-                ui.notifications.warn("Deadly Encounter Benchmark  |  Display Token Outline option selected. Please enable Token Magic FX!");
-            }
-        }
-
-        //Chat Message Option
-        let chatContent = ""
-            if(CR > DEBM + friendlyCR){chatContent = 
-                `
-                <div class="padding"><center><span class="isdeadly-backgroundClear">This encounter may be</span><span class="isdeadly-backgroundRed">Deadly</span></center>
-                </div>
-                <div class="chat">${textZeroDEBM} | ${zeroCR}</div>
-                <p><button id="details">Details</button></p>
-                `
-            }
-            if(CR == DEBM + friendlyCR){chatContent = 
-                `
-                <div class="padding"><center><span class="isdeadly-backgroundClear">This encounter is</span><span class="isdeadly-backgroundOrange">Challenging</span></center>
-                </div>
-                <div class="chat">${textZeroDEBM} | ${zeroCR}</div>
-                <p><button id="details">Details</button></p>
-                `
-            }
-            if(CR < DEBM + friendlyCR){chatContent = 
-                `
-                <div class="padding"><center><span class="isdeadly-backgroundClear">This encounter is</span><span class="isdeadly-backgroundGreen">Not Deadly</span></center>
-                </div>
-                <div class="chat">${textZeroDEBM} | ${zeroCR}</div>
-                <p><button id="details">Details</button></p>
-                `
-            }
         
         const myDialogOptions = {
-            resizable: true,
-            left: 300
+            id: "debm-window", 
         };
-
-        const chatOption = game.settings.get("deadly-encounter-benchmark", "chat-option");
         
-        //Dialog box & Chat message displays
-        if (chatOption === 'off') {
-            if(selected.length > 0){
-                const myDialog = new Dialog({
-                    title: "Deadly Encounter Benchmark",
-                    content: dialogTemplate,
-                    buttons: {
-                        calculateDEBM: {
-                            label: "Calculate Benchmark",
-                            icon: `<i class="fa-solid fa-arrow-rotate-right"></i> `,
-                            callback: DeadlyEncounterBenchmark._activeDEBM,
-                        },
-                        close: {
-                            label: "Close",
-                            icon: `<i class="fa-solid fa-right-from-bracket"></i> `
-                        }
+        //Dialog box display
+        if(selected.length > 0){
+            const myDialog = new Dialog({
+                title: "Deadly Encounter Benchmark",
+                content: dialogTemplate,
+                popOut: true,
+                buttons: {
+                    close: {
+                        label: "Close",
+                        icon: `<i class="fa-solid fa-right-from-bracket"></i> `
                     }
-                }, myDialogOptions).render(true);
-            }
+                }
+            }, myDialogOptions).render(true); 
         }
-        if (chatOption === 'both') {
-            if(selected.length > 0){
-                const myDialog = new Dialog({
-                    title: "Deadly Encounter Benchmark",
-                    content: dialogTemplate,
-                    buttons: {
-                        calculateDEBM: {
-                            label: "Calculate Benchmark",
-                            icon: `<i class="fa-solid fa-arrow-rotate-right"></i> `,
-                            callback: DeadlyEncounterBenchmark._activeDEBM,
-                        },
-                        close: {
-                            label: "Close",
-                            icon: `<i class="fa-solid fa-right-from-bracket"></i> `
-                        }
-                    }
-                }, myDialogOptions).render(true);
-            }
-            ChatMessage.create({
-                content: chatContent,
-            })
-        }
-        if (chatOption === 'only') {
-            ChatMessage.create({
-                content: chatContent,
-            })
-        }
-
-        //Chat message details button
-        Hooks.once('renderChatMessage', (chatItem, html) => {
-            html.find("#details").click(() => {
-                new Dialog({
-                    title: "Deadly Encounter Benchmark",
-                    content: dialogTemplate,
-                    buttons: {
-                        close: {
-                            label: "Close",
-                            icon: `<i class="fa-solid fa-right-from-bracket"></i> `
-                        }
-                    }
-                }, myDialogOptions).render(true);
-            })
-        })
     }  
 }
-
-//Settings
-Hooks.on("init", () => {
-    game.settings.register(
-        "deadly-encounter-benchmark",
-        "chat-option",
-        {
-            name: "deadly-encounter-benchmark.settings.chat-option",
-            hint: "deadly-encounter-benchmark.settings.chat-option-hint",
-            scope: "client",
-            config: true,
-            default: "off",
-            choices: {
-                "off": "deadly-encounter-benchmark.settings.chat-option-off",
-                "only": "deadly-encounter-benchmark.settings.chat-option-only",
-                "both": "deadly-encounter-benchmark.settings.chat-option-both"
-            },
-            type: String,
-        }
-    );
-    game.settings.register(
-        "deadly-encounter-benchmark",
-        "wordtip-option",
-        {
-            name: "deadly-encounter-benchmark.settings.wordtip-option",
-            hint: "deadly-encounter-benchmark.settings.wordtip-option-hint",
-            scope: "client",
-            config: true,
-            default: true,
-            type: Boolean,
-        }
-    );
-    game.settings.register(
-        "deadly-encounter-benchmark",
-        "token-outline",
-        {
-            name: "deadly-encounter-benchmark.settings.token-outline",
-            hint: "deadly-encounter-benchmark.settings.token-outline-hint",
-            scope: "client",
-            config: true,
-            default: false,
-            type: Boolean,
-        }
-    );
-});
 
 //Button
 Hooks.on('getSceneControlButtons', (buttons) => {
