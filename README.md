@@ -25,6 +25,9 @@ Once installed and actived, a <i>Deadly Encounter Benchmark</i> button will appe
 <img src="https://github.com/snshatto/deadly-encounter-benchmark/assets/112721768/93281f1b-c870-47b1-91ce-3347113ca4cf" width="500"> 
 
 # Changelog
+v2.0.1
+- Updated for latest version of Foundry
+  
 v2.0.0
 This is a major re-work of the module. Changes include:
 
