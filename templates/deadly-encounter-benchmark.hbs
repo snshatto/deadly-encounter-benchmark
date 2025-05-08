@@ -1,0 +1,43 @@
+<div class="debm-image-container">
+  <img src="systems/dnd5e/ui/texture-gray1.webp" alt="Background" class="debm-bg-image" />
+</div>
+<div class="dialogbox">
+  <div class="benchmark-value text-center">{{{isDeadly}}}</div>
+  <div class="benchmark-box">
+    <div class="benchmark-title">The Deadly Encounter Benchmark is:</div>
+    <div class="benchmark-value">{{{textDEBM}}}</div>
+    <div class="image-row player-container">{{{playerContainer}}}</div>
+      {{#if allyContainer}}
+        <div class="divider-with-text"><span><i class="fa-solid fa-users"></i> Allies</span></div>
+        <div class="image-row ally-container">{{{allyContainer}}}</div>
+      {{/if}}
+  <hr>
+    <div class="benchmark-title">Total Enemy CR:</div>
+    <div class="benchmark-value">{{{newCR}}}</div> 
+    <div class="image-row monster-container">{{{monsterContainer}}}</div>
+  </div>
+    <details class="benchmark-info">
+      <summary>
+        <i class="fas fa-info-circle"></i>
+        <span class="summary-text">What is the "Deadly Encounter Benchmark"?</span>
+      </summary>
+      <div>
+        <p>The <i>Deadly Encounter Benchmark</i> is a guideline that helps determine an encounter's difficulty.</p>
+          <p>An encounter may be deadly if the total monster CR exceeds:</p>
+            <ul>
+              <li>1⁄4 of the total character levels (levels 1–4)</li>
+              <li>1⁄2 of the total character levels (levels 5–10)</li>
+              <li>3⁄4 of the total character levels (levels 11–16)</li>
+              <li>Equal to total character levels (level 17+)</li>
+            </ul>
+          <p>A Deadly Encounter means:</p>
+            <ul>
+              <li>Most characters may lose over half their HP.</li>
+              <li>Several characters might go unconscious.</li>
+              <li>There’s a real risk of character death.</li>
+            </ul>
+        <p>When calculating, friendly NPCs add their CR to the <i>Deadly Encounter Benchmark</i>.</p>
+      </div>
+    </details>
+  </div>
+</div>
