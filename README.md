@@ -20,11 +20,22 @@ A deadly encounter means:
 - Several characters might go unconscious.
 - There’s a chance that one or more characters might die.
 
-Once installed and actived, a <i>Deadly Encounter Benchmark</i> button will appear under the Token Controls menu. <img src="https://github.com/snshatto/deadly-encounter-benchmark/assets/112721768/edf5c4a7-ec73-4633-b3ed-b3e159526c0a" width="30"> Click to activate.
+Once installed and actived, a <i>Deadly Encounter Benchmark</i> button will appear under the Token Controls menu.
 
-<img src="https://github.com/snshatto/deadly-encounter-benchmark/assets/112721768/93281f1b-c870-47b1-91ce-3347113ca4cf" width="500"> 
+<img src="https://github.com/user-attachments/assets/6899dc8b-64f7-4a9e-a18f-c2e362880aae" width="200"> 
+
+Click to activate.
+
+<img src="https://github.com/user-attachments/assets/11d90e6d-8582-4d53-8f69-df3b616a17fb" width="500"> 
 
 # Changelog
+v3.0.0
+- Complete re-write and re-styling of the module
+- Updated for Foundry V13
+- Updated for V2 Application Framework
+- Token images are clickable and open up associated character sheet
+- Added a "Recalculate" button to the dialog box that will recalculate the Deadly Encounter Benchmark
+  
 v2.0.1
 - Updated for latest version of Foundry
   
