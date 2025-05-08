@@ -1,171 +1,177 @@
-.padding{
-  position: relative; 
-  display: inline-block;
-  padding: 6px
+:root {
+  --debm-padding: 4px;
+  --debm-font-size: 20px;
+  --debm-height: 25px;
+  --debm-radius: 3px;
+  --debm-font-family: var(--dnd5e-font-roboto-slab);
+  --debm-background-red: #b94a48;
+  --debm-background-green: #468847;
+  --debm-background-orange: #f89406;
+  --debm-background-clear: transparent;
 }
-  /*The following is a modified CSS based on Monks Little Details by ironmonk88 (https://github.com/ironmonk88/monks-little-details)*/
-.isdeadly-backgroundRed {
+
+.padding {
   display: inline-block;
-  padding: 0px 4px;
-  line-height: 16px;
-  color: #fff;
-  white-space: nowrap;
-  vertical-align: top;
-  background-color: #b94a48;
-  border-radius: 3px;
-  height: 25px;
-  text-align: center;
-  position: relative;
-  font-family: var(--dnd5e-font-roboto-slab);
-  font-size: 20px;
-  padding: 4px;
-  margin-left: 0px;
+  padding: 6px;
 }
-.isdeadly-backgroundClear {
-  display: inline-block;
-  padding: 2px 4px;
-  line-height: 16px;
-  color: black;
-  white-space: nowrap;
-  vertical-align: top;
-  background-color: #ffffff00;
-  border-radius: 3px;
-  height: 25px;
-  text-align: center;
-  position: relative;
-  font-family: var(--dnd5e-font-roboto-slab);
-  font-size: 20px;
-  padding: 4px;
-  margin-left: 0px;
-}
-.isdeadly-backgroundGreen {
-  display: inline-block;
-  padding: 0px 4px;
-  line-height: 16px;
-  color: #fff;
-  white-space: nowrap;
-  vertical-align: top;
-  background-color: #468847;
-  border-radius: 3px;
-  height: 25px;
-  text-align: center;
-  position: relative;
-  font-family: var(--dnd5e-font-roboto-slab);
-  font-size: 20px;
-  padding: 4px;
-  margin-left: 0px;
-}
+
+.isdeadly-backgroundRed,
+.isdeadly-backgroundGreen,
+.isdeadly-backgroundClear,
 .isdeadly-backgroundOrange {
   display: inline-block;
-  padding: 0px 4px;
+  padding: var(--debm-padding);
   line-height: 16px;
-  color: #fff;
+  height: var(--debm-height);
+  font-size: var(--debm-font-size);
+  font-family: var(--debm-font-family);
   white-space: nowrap;
   vertical-align: top;
-  background-color: #f89406;
-  border-radius: 3px;
-  height: 25px;
   text-align: center;
+  border-radius: var(--debm-radius);
   position: relative;
-  font-family: var(--dnd5e-font-roboto-slab);
-  font-size: 20px;
-  padding: 4px;
-  margin-left: 0px;
+  margin-left: 0;
 }
-.isdeadly-backgroundChat {
-  display: inline-block;
-  padding: 0px 4px;
-  line-height: 16px;
-  color: #b94a48;
-  white-space: nowrap;
-  vertical-align: top;
-  background-color: #f8930600;
-  border-radius: 3px;
-  height: 25px;
-  text-align: center;
-  position: relative;
-  font-family: var(--dnd5e-font-roboto-slab);
-  font-size: 20px;
-  left: 25%
-}
-.container {
-  border: none;
-}
+
+.isdeadly-backgroundRed {background-color: var(--debm-background-red); color: #fff;}
+.isdeadly-backgroundGreen { background-color: var(--debm-background-green); color: #fff; }
+.isdeadly-backgroundOrange { background-color: var(--debm-background-orange); color: #fff; }
+.isdeadly-backgroundClear { background-color: var(--debm-background-clear); }
+
+.noToken { font-weight: normal; color: grey; font-size: 80%; font-style: italic; }
+
+.container {border: none;}
+
 .dialogbox {
   display: flex;
   flex-direction: column;
-  background: transparent;
+  height: 100%;
+  width: min(90vw, 400px);
 }
-#debm-window .window-content{
+
+.dialogbox-inner {padding: 10px;}
+
+.text-center {text-align: center;}
+
+.image-row, .ally-container {
   display: flex;
-  flex-direction: column;
-  padding: 10px;
-  position: relative;
-  font-family: var(--dnd5e-font-roboto-condensed);
-  text-align: start;
-  color: var(--color-text-dark-primary);
-  background: url(/systems/dnd5e/ui/texture-gray1.webp) no-repeat top left, url(/systems/dnd5e/ui/texture-gray2.webp) no-repeat bottom right, var(--dnd5e-color-parchment);
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  box-shadow: 0 0 16px var(--dnd5e-shadow-45);
-  border: 1px solid var(--dnd5e-color-gold);
-  border-top: 0px;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  max-width: 100%;
+  height: auto;
 }
-#debm-window .dialogbox filigree-box {
-  padding: 10px;
+
+.debm-token-img {
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
-#debm-window .window-header {
-  background: transparent url("/systems/dnd5e/ui/official/banner-character.jpg") no-repeat center/cover; 
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-  border: 1px solid var(--dnd5e-color-gold);
-  border-bottom: 0px;
+
+.debm-token-img:hover {transform: scale(1.2);}
+
+.benchmark-title {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
 }
-#debm-window input,
-#debm-window button {
-  transition: all 250ms ease;
-}
-#debm-window button {
-  background: var(--dnd5e-color-card);
-  font-family: var(--dnd5e-font-roboto);
+
+.benchmark-value {
+  text-align: center;
+  font-size: 1.3rem;
   font-weight: bold;
-  font-size: var(--font-size-13);
-  text-transform: uppercase;
-  padding: 0.1875rem;
-  border: 1px solid var(--color-border-light-2);
-  box-shadow: 0 0 8px var(--dnd5e-shadow-15);
+  margin-bottom: 10px;
+}
+
+.benchmark-info {margin-top: 1rem; padding: 10px;}
+
+.benchmark-box {
+  border: 2px solid var(--dnd5e-color-gold);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.benchmark-info summary {
+  list-style: none;
+  text-align: center;
+  cursor: pointer;
+  color: inherit;
+}
+
+.benchmark-info summary i {
+  margin-right: 0.5em;
+  transition: transform 0.2s ease;
+}
+
+.benchmark-info summary:hover,
+.benchmark-info summary:focus {
+  color: var(--dnd5e-color-gold);
+}
+
+details > div {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+}
+
+.divider-with-text {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.25rem;
+  margin: 1em 0;
+  height: 1.5em;
 }
-#debm-window button:disabled {
-  cursor: default;
-  color: var(--color-text-dark-inactive);
-}
-#debm-window button:hover:not(:disabled),
-#debm-window button:focus {
-  box-shadow: 0 0 5px var(--color-shadow-primary);
-}
-#debm-window button.radio-button {
-  width: 13px;
-  height: 13px;
-  border-radius: 100%;
-  background: none;
-  box-shadow: inset 0 0 6px var(--dnd5e-shadow-45);
-  padding: 3px;
-  display: grid;
-  border: none;
-  justify-content: unset;
-}
-#debm-window button.radio-button:hover {
-  filter: drop-shadow(0 0 6px var(--dnd5e-color-gold));
-}
-#debm-window button.radio-button[aria-pressed="true"]::before {
+
+.divider-with-text::before,
+.divider-with-text::after {
   content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to left, var(--dnd5e-color-gold), transparent);
+  opacity: 0.6;
+}
+
+.divider-with-text::after {
+  background: linear-gradient(to right, var(--dnd5e-color-gold), transparent);
+}
+
+.divider-with-text span {
+  padding: 0 1em;
+  color: var(--dnd5e-color-gold);
+  font-style: italic;
+  font-family: var(--dnd5e-font-roboto-slab);
+  font-size: 1.1em;
+  white-space: nowrap;
+}
+
+#debm-window .window-content {
+  max-height: 600px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.debm-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.debm-bg-image {
   width: 100%;
   height: 100%;
-  display: inline-block;
-  border-radius: 100%;
-  background: var(--color-border-dark-5);
+  object-fit: cover;
+  opacity: 0.3;
+}
+
+.dialogbox,
+.dialogbox-inner,
+.benchmark-box,
+.benchmark-info {
+  position: relative;
+  z-index: 1;
 }
