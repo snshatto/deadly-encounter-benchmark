@@ -1,43 +1,29 @@
 {
-  "id": "deadly-encounter-benchmark",
-  "title": "Deadly Encounter Benchmark",
-  "description": "Help determine the difficulty of combat encounters using this benchmark method. Modeled after Sly Flourish's Lazy DM Prep.",
+  "id": "kill-tracker",
+  "title": "Kill Tracker",
+  "description": "A simple module to manually track player kills.",
   "authors": [
-    {
-      "name": "Chateaux",
-      "discord": "Chateaux#0442",
-      "flags": {}
-    }
-  ],
-  "version": "3.0.0",
-  "compatibility": {
-    "minimum": "10",
-    "verified": "13"
-  },
-  "relationships": {
-    "systems": [
-      {
-        "id": "dnd5e",
-        "type": "system",
-        "compatibility": {}
-      }
-    ]
-  },
-  "esmodules": [
-    "scripts/deadly_encounter_benchmark.js"
-  ],
-  "styles": [
-    "styles/deadly_encounter_benchmark.css"
-  ],
+        {
+        "name": "Chateaux",
+        "discord": "Chateaux#0442",
+        "flags": {}
+        }
+    ],
+    "version": "1.0.0",
+        "compatibility": {
+            "minimum": "10",
+            "verified": "13"
+        },
+  "esmodules": ["main.js"],
+  "styles": ["styles/kill-tracker.css"],
   "languages": [
     {
       "lang": "en",
       "name": "English",
-      "path": "languages/en.json",
-      "flags": {}
+      "path": "lang/en.json"
     }
   ],
-  "url": "https://github.com/snshatto/deadly-encounter-benchmark",
-  "manifest": "https://github.com/snshatto/deadly-encounter-benchmark/releases/latest/download/module.json",
-  "download": "https://github.com/snshatto/deadly-encounter-benchmark/releases/download/v2.0.1/module.zip"
+  "url": "https://github.com/snshatto/kill-tracker",
+  "manifest": "https://github.com/snshatto/kill-tracker/releases/latest/download/module.json",
+  "download": "https://github.com/snshatto/kill-tracker/releases/download/v1.0.0/module.zip"
 }
